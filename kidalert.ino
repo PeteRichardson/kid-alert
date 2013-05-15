@@ -1,13 +1,16 @@
 #include <SoftwareSerial.h>
+#include "Emic2TtsModule.h"
 
 int rxSpeech = 4;
 int txSpeech = 5;
 
-SoftwareSerial Speech = SoftwareSerial(rxSpeech,txSpeech);
+SoftwareSerial emic2Serial = SoftwareSerial(rxSpeech,txSpeech);
+Emic2TtsModule emic = Emic2TtsModule(&emic2Serial);
 
 void setup() {
-  Speech.begin(9600);
-  Speech.println("Katherine, go back to bed!");
+  emic2Serial.begin(9600);
+  emic.init();
+  emic.say("Katherine, go back to bed!");
 }
 
 void loop() {
