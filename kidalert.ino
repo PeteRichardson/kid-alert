@@ -15,7 +15,7 @@ Emic2TtsModule emic = Emic2TtsModule(&emic2Serial);
 void setup() {
   emic2Serial.begin(9600);
   emic.init();
-  emic.say("Sentry starting");
+  emic.say("");
 }
 
 void loop() {
@@ -24,7 +24,7 @@ void loop() {
     digitalWrite(ledPin, HIGH);  // turn LED ON
     if (pirState == LOW) {
       // we have just turned on
-      emic.say("hello");
+      emic.say(">>__Katherine!<<Go back to __bed. ");
       // We only want to print on the output change, not state
       pirState = HIGH;
     }
@@ -32,7 +32,7 @@ void loop() {
     digitalWrite(ledPin, LOW); // turn LED OFF
     if (pirState == HIGH){
       // we have just turned of
-      emic.say("goodbye");
+      emic.say("good night");
       // We only want to print on the output change, not state
       pirState = LOW;
     }
